@@ -1,0 +1,19 @@
+{
+  "name": "poogle-api-doc",
+  "version": "1.0.0",
+  "description": "API Documentation of the Poogle project",
+  "author": "Fabien Leite",
+  "scripts": {
+    "build": "./node_modules/.bin/raml2html --theme raml2html-material-theme -o ./api.html -i ./api.raml"
+  },
+  "devDependencies": {
+    "raml2html": "^7.0.0",
+    "raml2html-material-theme": "^0.1.2"
+  },
+  "keywords": [
+    "porn",
+    "search",
+    "api",
+    "documentation"
+  ]
+}

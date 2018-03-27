@@ -1,7 +1,9 @@
 #%RAML 1.0
 title: Poogle
-description: "Poogle is a meta search engine that gather searches from different porn sites and display them into one only convivial interface. It allows you to find the porn you're looking for faster and gives you the direct link to the original videos. It is for now intended to work with a limited number of non-free big porn websites."
+description: "Poogle is a meta search engine that gather searches from different porn sites and display them into one only convivial interface. It allows you to find the porn you're looking for faster and gives you the direct link to the original videos. It is for now intended to work with a limited number of non-free big porn websites"
 version: v1
+protocols: http
+
 /user:
   get:
     description: Get the list of all the users of the system
@@ -47,6 +49,8 @@ version: v1
           application/json:
             example: !include examples/errors/serverError.json
 
+
+
 /services:
   get:
     description: Get all the currently availables services in the API
@@ -60,6 +64,51 @@ version: v1
           application/json:
             example: !include examples/errors/serverError.json
 
+
+
 /search:
   get:
-    description: Performs a search on all the user's activated services
+    description: Performs a search on all the user's activated services and get a list of videos from that
+    queryParameters:
+      category:
+        type: string
+        required: false
+      freeSearch:
+        type: string
+        required: false
+        description: What the user would actually type in a search input. Can be combined with all the other parameters.
+      performers:
+        type: array
+        required: false
+        description: Porn performers wanted to be in the results.
+      minDate:
+        type: date-only
+        required: false
+      maxDate:
+        type: date-only
+        required: false
+      minLength:
+        type: integer
+        required: false
+        description: Video minimum length in seconds
+      maxLength:
+        type: integer
+        required: false
+        description: Video maximum length in seconds
+      excludedWords:
+        type: array
+        required: false
+        description: An array of words that will not be included into the results.
+    responses:
+      200:
+        body:
+          application/json:
+            example: !include examples/search/searchResult.json
+      400:
+        body:
+          application/json:
+            example: !include examples/errors/badRequest.json
+      500:
+        body:
+          application/json:
+            example: !include examples/errors/serverError.json

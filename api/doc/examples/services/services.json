@@ -1,23 +1,23 @@
 [
   {
-    id: 1,
-    name: "JulesJordan",
-    baseUrl: "https://www.julesjordan.com/",
-    searchUrl: "https://www.julesjordan.com/trial/search.php?x=0&y=0&query=",
-    status: "ok"
+    "id": 1,
+    "name": "JulesJordan",
+    "baseUrl": "https://www.julesjordan.com/",
+    "searchUrl": "https://www.julesjordan.com/trial/search.php?x=0&y=0&query=",
+    "status": "ok"
   },
   {
-    id: 2,
-    name: "Tushy",
-    baseUrl: "https://www.tushy.com",
-    searchUrl: "https://www.tushy.com/search?q=",
-    status: "ok"
+    "id": 2,
+    "name": "Tushy",
+    "baseUrl": "https://www.tushy.com",
+    "searchUrl": "https://www.tushy.com/search?q=",
+    "status": "ok"
   },
   {
-    id: 3,
-    name: "Brazzers",
-    baseUrl: "https://www.brazzers.com",
-    searchUrl: "https://www.brazzers.com/search/all/?q=",
-    status: "broken"
+    "id": 3,
+    "name": "Brazzers",
+    "baseUrl": "https://www.brazzers.com",
+    "searchUrl": "https://www.brazzers.com/search/all/?q=",
+    "status": "broken"
   }
 ]

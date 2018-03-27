@@ -1,236 +1,230 @@
-<!DOCTYPE HTML><html><head><title>Poogle API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 7.0.0"><link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css"><script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script><script type="text/javascript" src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script><script type="text/javascript">
-      $(document).ready(function() {
-        $('.page-header pre code, .top-resource-description pre code, .modal-body pre code').each(function(i, block) {
-          hljs.highlightBlock(block);
-        });
+<!DOCTYPE HTML><html><head><title>Poogle API documentation</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="generator" content="https://github.com/raml2html/raml2html 7.0.0"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" media="screen,projection"><style>
+        .badge {
+            text-transform: uppercase;
+            font-weight:bold !important;
+        }
 
-        $('[data-toggle]').click(function() {
-          var selector = $(this).data('target') + ' pre code';
-          $(selector).each(function(i, block) {
-            hljs.highlightBlock(block);
-          });
-        });
+        .badge i {
+            float: left;
+            margin-right: 0.2rem;
+            line-height:1.4rem;
+            font-size:1rem;
+            width:auto;
+        }
 
-        // open modal on hashes like #_action_get
-        $(window).bind('hashchange', function(e) {
-          var anchor_id = document.location.hash.substr(1); //strip #
-          var element = $('#' + anchor_id);
+        .badge-get {
+            background-color: #2196f3 !important;
+        }
 
-          // do we have such element + is it a modal?  --> show it
-          if (element.length && element.hasClass('modal')) {
-            element.modal('show');
-          }
-        });
+        .badge-post {
+            background-color: #4caf50 !important;
+        }
 
-        // execute hashchange on first page load
-        $(window).trigger('hashchange');
+        .badge-delete {
+            background-color: #f44336 !important;
+        }
 
-        // remove url fragment on modal hide
-        $('.modal').on('hidden.bs.modal', function() {
-          try {
-            if (history && history.replaceState) {
-                history.replaceState({}, '', '#');
-            }
-          } catch(e) {}
-        });
-      });
-    </script><style>
-      .hljs {
-        background: transparent;
-      }
-      .parent {
-        color: #999;
-      }
-      .list-group-item > .badge {
-        float: none;
-        margin-right: 6px;
-      }
-      .panel-title > .methods {
-        float: right;
-      }
-      .badge {
-        border-radius: 0;
-        text-transform: uppercase;
-        width: 70px;
-        font-weight: normal;
-        color: #f3f3f6;
-        line-height: normal;
-      }
-      .badge_get {
-        background-color: #63a8e2;
-      }
-      .badge_post {
-        background-color: #6cbd7d;
-      }
-      .badge_put {
-        background-color: #22bac4;
-      }
-      .badge_delete {
-        background-color: #d26460;
-      }
-      .badge_patch {
-        background-color: #ccc444;
-      }
-      .list-group, .panel-group {
-        margin-bottom: 0;
-      }
-      .panel-group .panel+.panel-white {
-        margin-top: 0;
-      }
-      .panel-group .panel-white {
-        border-bottom: 1px solid #F5F5F5;
-        border-radius: 0;
-      }
-      .panel-white:last-child {
-        border-bottom-color: white;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-      }
-      .panel-white .panel-heading {
-        background: white;
-      }
-      .tab-pane ul {
-        padding-left: 2em;
-      }
-      .tab-pane h1 {
-        font-size: 1.3em;
-      }
-      .tab-pane h2 {
-        font-size: 1.2em;
-        padding-bottom: 4px;
-        border-bottom: 1px solid #ddd;
-      }
-      .tab-pane h3 {
-        font-size: 1.1em;
-      }
-      .tab-content {
-        border-left: 1px solid #ddd;
-        border-right: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
-        padding: 10px;
-      }
-      #sidebar {
-        margin-top: 30px;
-        padding-right: 5px;
-        overflow: auto;
-        height: 90%;
-      }
-      .top-resource-description {
-        border-bottom: 1px solid #ddd;
-        background: #fcfcfc;
-        padding: 15px 15px 0 15px;
-        margin: -15px -15px 10px -15px;
-      }
-      .resource-description {
-        border-bottom: 1px solid #fcfcfc;
-        background: #fcfcfc;
-        padding: 15px 15px 0 15px;
-        margin: -15px -15px 10px -15px;
-      }
-      .resource-description p:last-child {
-        margin: 0;
-      }
-      .list-group .badge {
-        float: left;
-      }
-      .method_description {
-        margin-left: 85px;
-      }
-      .method_description p:last-child {
-        margin: 0;
-      }
-      .list-group-item {
-        cursor: pointer;
-      }
-      .list-group-item:hover {
-        background-color: #f5f5f5;
-      }
-      pre code {
-        overflow: auto;
-        word-wrap: normal;
-        white-space: pre;
-      }
-      .items {
-        background: #f5f5f5;
-        color: #333;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 9.5px;
-        margin: 0 0 10px;
-        font-size: 13px;
-        line-height: 1.42857143;
-      }
-      .examples {
-        margin-left: 0.5em;
-      }
-      .resource-modal li > ul {
-        margin-bottom: 1em;
-      }
-    </style></head><body data-spy="scroll" data-target="#sidebar"><div class="container"><div class="row"><div class="col-md-9" role="main"><div class="page-header"><h1>Poogle API documentation <small>version v1</small></h1><p></p><p>Poogle is a meta search engine that gather searches from different porn sites and display them into one only convivial interface. It allows you to find the porn you're looking for faster and gives you the direct link to the original videos. It is for now intended to work with a limited number of non-free big porn websites.</p></div><div class="panel panel-default"><div class="panel-heading"><h3 id="user" class="panel-title">/user</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_user"><span class="parent"></span>/user</a> <span class="methods"><a href="#user_get"><span class="badge badge_get">get</span></a> <a href="#user_post"><span class="badge badge_post">post</span></a></span></h4></div><div id="panel_user" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#user_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get the list of all the users of the system</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#user_post'" class="list-group-item"><span class="badge badge_post">post</span><div class="method_description"><p>Add a new user</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="user_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/user</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get the list of all the users of the system</p></div><ul class="nav nav-tabs"><li class="active"><a href="#user_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="user_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+        .badge-put {
+            background-color: #ff9800 !important;
+        }
+
+        .badge-patch {
+            background-color: #673ab7 !important;
+        }
+
+        .badge-head {
+            background-color: #222222 !important;
+        }
+
+        .badge-options {
+            background-color: #616161 !important;
+        }
+
+        .text-primary {
+            color: #ee6e73 !important;
+        }
+
+        .bg-primary {
+            background-color:#ee6e73 !important;
+        }
+
+        .tabs a {
+            color: #039be5 !important;
+        }
+
+        .tabs .indicator {
+            background-color: #039be5 !important;
+        }
+
+        .tabs.response a {
+            color: #4db6ac !important;
+        }
+        .tabs.response .indicator{
+            background-color: #4db6ac !important;
+        }
+
+        .space-between {
+            justify-content: space-between;
+        }
+
+        .d-flex {
+            display:flex;
+        }
+
+        .chip {
+            line-height: 22px;
+            font-size:15px;
+            height:22px;
+            margin-bottom:0;
+            border-radius:2px;
+            padding: 0 5px;
+            margin-left:5px;
+        }
+
+        ul.browser-default {
+            padding-left:20px;
+        }
+        ul.browser-default li {
+            margin-top:10px;
+        }
+
+        .example {
+            border: 1px solid #e0e0e0;
+        }
+
+        .example pre {
+            padding: 8px;
+            margin: 0px;
+        }
+
+        .modal {
+            height: 80% !important;
+            max-height: 80% !important;
+            width: 60% !important;
+        }
+    </style></head><body><div class="section grey darken-4"><div class="container"><h3 class="white-text">Poogle API documentation <small class="white-text">version v1</small></h3><p class="white-text"></p></div></div><div class="container"><div class="section"><p>Poogle is a meta search engine that gather searches from different porn sites and display them into one only convivial interface. It allows you to find the porn you're looking for faster and gives you the direct link to the original videos. It is for now intended to work with a limited number of non-free big porn websites</p></div></div><div class="divider"></div><div class="container"><div class="section"><h5>/user</h5><ul class="collection"><li class="collection-item space-between d-flex"><span><span class="grey-text"></span> <span>/user</span></span> <span><a href="#user_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a> <a href="#user_post" class="waves-effect waves-light modal-trigger"><span class="new badge badge-post" data-badge-caption="post"></span></a></span></li><div id="user_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <strong><span class="parent"></span>/user</strong><p></p><p>Get the list of all the users of the system</p><p></p></div><div class="section"><ul class="tabs"><li class="tab active"><a href="#user_get_response">Response</a></li></ul><div id="user_get_response"><ul class="tabs response"><li class="tab"><a href="#user_get_response_200">200</a></li><li class="tab"><a href="#user_get_response_500">500</a></li></ul><div id="user_get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>[
   {
-    id: 1,
-    userName: "jeanmi",
-    email: "jeanmi.const@example.com",
-    services: [1, 2, 4 ],
-    receivesNews: false
+    "id": 1,
+    "userName": "jeanmi",
+    "email": "jeanmi.const@example.com",
+    "services": [1, 2, 4],
+    "receivesNews": false
   },
   {
-    id: 2,
-    userName: "john",
-    email: "john.doe@example.com",
-    services: [],
-    receivesNews: true
+    "id": 2,
+    "userName": "john",
+    "email": "john.doe@example.com",
+    "services": [],
+    "receivesNews": true
   }
 ]
-</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+</code></pre></div></div></li></ul></div><div id="user_get_response_500"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>{
   "errorCode": "serverError",
   "errorMessage": "It seems the server encountered a problem. Check again later."
 }
-</code></pre></div></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="user_post"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/user</h4></div><div class="modal-body"><div class="alert alert-info"><p>Add a new user</p></div><ul class="nav nav-tabs"><li class="active"><a href="#user_post_request" data-toggle="tab">Request</a></li><li><a href="#user_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="user_post_request"><h3>Query Parameters</h3><ul><li><strong>email</strong>: <em>required (string)</em></li><li><strong>userName</strong>: <em>required (string)</em></li><li><strong>receivesNews</strong>: <em>(boolean - default: false)</em><p>Whether or not the user receives news about the service (updates, improvements, ...)</p></li><li><strong>services</strong>: <em>(array)</em><p>Array of services id.</p></li></ul></div><div class="tab-pane" id="user_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
-  userName: "jeanmi",
-  email: "jeanmi.const@example.com",
-  receivesNews: false,
-  services: [1, 2]
+</code></pre></div></div></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div><div id="user_post" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-post" data-badge-caption="post"></span> <strong><span class="parent"></span>/user</strong><p></p><p>Add a new user</p><p></p></div><div class="section"><ul class="tabs"><li class="tab active"><a href="#user_post_request">Request</a></li><li class="tab"><a href="#user_post_response">Response</a></li></ul><div id="user_post_request"><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><strong>email:</strong> <span>string</span>&nbsp;<span class="blue-text">(required)</span></li><li><strong>userName:</strong> <span>string</span>&nbsp;<span class="blue-text">(required)</span></li><li><strong>receivesNews:</strong> <span>boolean</span> | default: false<br>Whether or not the user receives news about the service (updates, improvements, ...)</li><li><strong>services:</strong> <span>(array of )</span><br>Array of services id.</li></ul></li></ul></div><div id="user_post_response"><ul class="tabs response"><li class="tab"><a href="#user_post_response_200">200</a></li><li class="tab"><a href="#user_post_response_400">400</a></li><li class="tab"><a href="#user_post_response_500">500</a></li></ul><div id="user_post_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>{
+  "userName": "jeanmi",
+  "email": "jeanmi.const@example.com",
+  "receivesNews": false,
+  "services": [1, 2]
 }
-</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/400" target="_blank">400</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Examples</strong>:</p><div class="examples"><p><strong>badParameter</strong>:<br></p><pre><code>{
+</code></pre></div></div></li></ul></div><div id="user_post_response_400"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Examples</strong></p><p><strong>badParameter</strong>:<br></p><div class="example grey lighten-4"><pre><code>{
   "errorCode": "badParameter",
   "errorMessage": "Your request was understood by server but was not correct.",
   "details": "Incorrect or unexpected arguments provided."
 }
-</code></pre><p><strong>emailTaken</strong>:<br></p><pre><code>{
+</code></pre></div><p><strong>emailTaken</strong>:<br></p><div class="example grey lighten-4"><pre><code>{
   "errorCode": "emailTaken",
   "errorMessage": "Your request was understood by server but was not correct.",
   "details": "Email is already in use."
 }
-</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+</code></pre></div></div></li></ul></div><div id="user_post_response_500"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>{
   "errorCode": "serverError",
   "errorMessage": "It seems the server encountered a problem. Check again later."
 }
-</code></pre></div></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="services" class="panel-title">/services</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_services"><span class="parent"></span>/services</a> <span class="methods"><a href="#services_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_services" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#services_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get all the currently availables services in the API</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="services_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/services</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get all the currently availables services in the API</p></div><ul class="nav nav-tabs"><li class="active"><a href="#services_get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="services_get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>[
+</code></pre></div></div></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div></ul></div><div class="section"><h5>/services</h5><ul class="collection"><li class="collection-item space-between d-flex"><span><span class="grey-text"></span> <span>/services</span></span> <span><a href="#services_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a></span></li><div id="services_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <strong><span class="parent"></span>/services</strong><p></p><p>Get all the currently availables services in the API</p><p></p></div><div class="section"><ul class="tabs"><li class="tab active"><a href="#services_get_response">Response</a></li></ul><div id="services_get_response"><ul class="tabs response"><li class="tab"><a href="#services_get_response_200">200</a></li><li class="tab"><a href="#services_get_response_500">500</a></li></ul><div id="services_get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>[
   {
-    id: 1,
-    name: "JulesJordan",
-    baseUrl: "https://www.julesjordan.com/",
-    searchUrl: "https://www.julesjordan.com/trial/search.php?x=0&amp;y=0&amp;query=",
-    status: "ok"
+    "id": 1,
+    "name": "JulesJordan",
+    "baseUrl": "https://www.julesjordan.com/",
+    "searchUrl": "https://www.julesjordan.com/trial/search.php?x=0&amp;y=0&amp;query=",
+    "status": "ok"
   },
   {
-    id: 2,
-    name: "Tushy",
-    baseUrl: "https://www.tushy.com",
-    searchUrl: "https://www.tushy.com/search?q=",
-    status: "ok"
+    "id": 2,
+    "name": "Tushy",
+    "baseUrl": "https://www.tushy.com",
+    "searchUrl": "https://www.tushy.com/search?q=",
+    "status": "ok"
   },
   {
-    id: 3,
-    name: "Brazzers",
-    baseUrl: "https://www.brazzers.com",
-    searchUrl: "https://www.brazzers.com/search/all/?q=",
-    status: "broken"
+    "id": 3,
+    "name": "Brazzers",
+    "baseUrl": "https://www.brazzers.com",
+    "searchUrl": "https://www.brazzers.com/search/all/?q=",
+    "status": "broken"
   }
 ]
-</code></pre></div><h2>HTTP status code <a href="http://httpstatus.es/500" target="_blank">500</a></h2><h3>Body</h3><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><p><strong>Example</strong>:</p><div class="examples"><pre><code>{
+</code></pre></div></div></li></ul></div><div id="services_get_response_500"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>{
   "errorCode": "serverError",
   "errorMessage": "It seems the server encountered a problem. Check again later."
 }
-</code></pre></div></div></div></div></div></div></div></div></div></div></div><div class="panel panel-default"><div class="panel-heading"><h3 id="search" class="panel-title">/search</h3></div><div class="panel-body"><div class="panel-group"><div class="panel panel-white resource-modal"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel_search"><span class="parent"></span>/search</a> <span class="methods"><a href="#search_get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel_search" class="panel-collapse collapse"><div class="panel-body"><div class="list-group"><div onclick="window.location.href = '#search_get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Performs a search on all the user&#39;s activated services</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="search_get"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent"></span>/search</h4></div><div class="modal-body"><div class="alert alert-info"><p>Performs a search on all the user&#39;s activated services</p></div><ul class="nav nav-tabs"></ul><div class="tab-content"></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#user">/user</a></li><li><a href="#services">/services</a></li><li><a href="#search">/search</a></li></ul></div></div></div></div></body></html>
+</code></pre></div></div></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div></ul></div><div class="section"><h5>/search</h5><ul class="collection"><li class="collection-item space-between d-flex"><span><span class="grey-text"></span> <span>/search</span></span> <span><a href="#search_get" class="waves-effect waves-light modal-trigger"><span class="new badge badge-get" data-badge-caption="get"></span></a></span></li><div id="search_get" class="modal modal-fixed-footer"><div class="modal-content"><div class="section"><span class="new badge badge-get" data-badge-caption="get"></span> <strong><span class="parent"></span>/search</strong><p></p><p>Performs a search on all the user&#39;s activated services and get a list of videos from that</p><p></p></div><div class="section"><ul class="tabs"><li class="tab active"><a href="#search_get_request">Request</a></li><li class="tab"><a href="#search_get_response">Response</a></li></ul><div id="search_get_request"><ul class="collection with-header"><li class="collection-header"><h5>Query Parameters</h5></li><li class="collection-item"><ul class="browser-default"><li><strong>category:</strong> <span>string</span></li><li><strong>freeSearch:</strong> <span>string</span><br>What the user would actually type in a search input. Can be combined with all the other parameters.</li><li><strong>performers:</strong> <span>(array of )</span><br>Porn performers wanted to be in the results.</li><li><strong>minDate:</strong> <span>date-only</span></li><li><strong>maxDate:</strong> <span>date-only</span></li><li><strong>minLength:</strong> <span>integer</span><br>Video minimum length in seconds</li><li><strong>maxLength:</strong> <span>integer</span><br>Video maximum length in seconds</li><li><strong>excludedWords:</strong> <span>(array of )</span><br>An array of words that will not be included into the results.</li></ul></li></ul></div><div id="search_get_response"><ul class="tabs response"><li class="tab"><a href="#search_get_response_200">200</a></li><li class="tab"><a href="#search_get_response_400">400</a></li><li class="tab"><a href="#search_get_response_500">500</a></li></ul><div id="search_get_response_200"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>[
+  {
+    "service": 2,
+    "performers": ["Keisha Grey", "Evelin Stone", "Manuel Ferrara"],
+    "title": "Sex With Our Biggest Fan",
+    "url": "https://www.vixen.com/sex-with-our-biggest-fan",
+    "thumbnailUrl": "https://secure2-images-vixen.ssl-cdn.com/TRIPPLE/100605/1512299878655/01_765x431.jpg?nvb=20180324123159&amp;nva=20180324153159&amp;hdl=-1&amp;hash=082eb304b4b2ff60a12af",
+    "description": "Keisha and Evelin have known each other all their lives so moving in together was a no-brainer. They have started their own cam show business and they are loving every minute. When one of their fans asks them for a live show and offers a good price, they decide to go with the flow.  For the amount of money he is willing to pay they are going to have some real fun.",
+    "date": "2017-12-05",
+    "length": 38.24,
+    "tags": []
+  },
+  {
+    "service": 5,
+    "title": "Fun by the Pool",
+    "description": "Enjoy all-natural busty porn star, Keisha Grey in her first mesmerizing virtual reality porn! You first see her swimming in a pool at the resort you both happen to be staying at. You try not to stare, but Keisha sees you anyway and towels off her sex...",
+    "performers": ["Keisha Grey"],
+    "url": "https://www.wankzvr.com/fun-by-the-pool-2345773",
+    "thumbnailUrl": "https://cdns-i.wankzvr.com/2/2345/2345773/cover/large.jpg",
+    "date": "2016-04-20",
+    "length": 42,
+    "tags": [
+      "VR",
+      "Big Cocks",
+      "Blowjob",
+      "Brunette",
+      "Couples",
+      "Cowgirl",
+      "Cum on Ass",
+      "Doggy Style",
+      "Hairy Pussy",
+      "Missionary",
+      "Reverse Cowgirl"
+    ]
+  }
+]
+</code></pre></div></div></li></ul></div><div id="search_get_response_400"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>{
+  "errorCode": "badParameter",
+  "errorMessage": "Your request was understood by server but was not correct.",
+  "details": "Incorrect or unexpected arguments provided."
+}
+</code></pre></div></div></li></ul></div><div id="search_get_response_500"><ul class="collection with-header"><li class="collection-header"><h5>Body</h5></li><li class="collection-item"><p><strong>Media type</strong>: application/json</p><p><strong>Type</strong>: object</p><div><p><strong>Example</strong></p><div class="example grey lighten-4"><pre><code>{
+  "errorCode": "serverError",
+  "errorMessage": "It seems the server encountered a problem. Check again later."
+}
+</code></pre></div></div></li></ul></div></div></div></div><div class="modal-footer"><a href="#!" class="modal-action modal-close waves-effect btn-flat">Close</a></div></div></ul></div></div><script src="https://code.jquery.com/jquery-2.1.1.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script><script>
+        $(document).ready(function () {
+            $('.modal').modal({
+                ready: function()  {
+                    $('ul.tabs').tabs();
+                }
+            });
+        });
+
+        $(document).ready(function(){
+            $('ul.tabs').tabs();
+        });
+
+    </script></body></html>
