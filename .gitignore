@@ -1,2 +1,7 @@
+[Editors & Tooling]
 .idea/
 .code/
+**/yarn-error.log
+
+[API]
+**/node_modules

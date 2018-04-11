@@ -1,6 +1,6 @@
-import * as path from 'path';
-import * as express from 'express';
-import * as bodyParser from 'body-parser';
+import * as bodyParser from "body-parser";
+import * as express from "express";
+import * as path from "path";
 
 class App {
 
@@ -17,17 +17,16 @@ class App {
     this.express.use(bodyParser.urlencoded({ extended: false }));
   }
 
-
   private routes(): void {
 
-    let router = express.Router();
+    const router = express.Router();
 
-    router.get('/', (req, res, next) => {
+    router.get("/", (req, res, next) => {
       res.json({
-        message: 'Hello World!'
+        message: "Hello World!",
       });
     });
-    this.express.use('/', router);
+    this.express.use("/", router);
   }
 
 }

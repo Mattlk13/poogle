@@ -1,6 +1,7 @@
 const gulp = require('gulp');
 const ts = require('gulp-typescript');
 const clean = require('gulp-clean');
+const tslint = require('gulp-tslint');
 
 const JSON_FILES = ['src/*.json', 'src/**/*.json'];
 
@@ -12,18 +13,18 @@ gulp.task('clean', () => {
     .pipe(clean());
 });
 
-gulp.task('build', ['clean'], () => {
-  const tsResult = tsProject.src().pipe(tsProject());
-  return tsResult.js.pipe(gulp.dest('build'));
+gulp.task('tslint', () => {
+  return gulp.src('src/**/*.ts')
+    .pipe(tslint({ formatter: "verbose" }))
+    .pipe(tslint.report());
 });
 
-gulp.task('watch', () => {
-  gulp.watch('src/**/*.ts', ['build']);
-});
-
-gulp.task('assets', function() {
+gulp.task('assets', () => {
   return gulp.src(JSON_FILES)
   .pipe(gulp.dest('build'));
 });
 
-gulp.task('default', ['watch', 'assets']);
+gulp.task('build', ['clean', 'tslint', 'assets'], () => {
+  const tsResult = tsProject.src().pipe(tsProject());
+  return tsResult.js.pipe(gulp.dest('build'));
+});
