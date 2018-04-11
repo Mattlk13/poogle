@@ -1,0 +1,40 @@
+{
+  "name": "poogle-api",
+  "version": "0.0.1",
+  "description": "Porn search utility",
+  "scripts": {
+    "test": "echo \"Error: no test specified yet\" && exit 1",
+    "prod": "npx gulp build && node build/index.js",
+    "dev": "npx gulp watch & npx nodemon --inspect build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabienleite/poogle.git"
+  },
+  "keywords": [
+    "porn",
+    "search"
+  ],
+  "author": "Fabien Leite",
+  "license": "CECILL-2.0",
+  "bugs": {
+    "url": "https://github.com/fabienleite/poogle/issues"
+  },
+  "homepage": "https://github.com/fabienleite/poogle#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "debug": "^3.1.0",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "@types/node": "^9.6.4",
+    "@types/body-parser": "^1.16.8",
+    "@types/debug": "^0.0.30",
+    "@types/express": "^4.11.1",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-typescript": "^4.0.2",
+    "nodemon": "^1.17.3",
+    "typescript": "^2.8.1"
+  }
+}
