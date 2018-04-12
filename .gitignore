@@ -1,6 +1,6 @@
 [Editors & Tooling]
 .idea/
-.code/
+.vscode/
 **/yarn-error.log
 
 [API]
