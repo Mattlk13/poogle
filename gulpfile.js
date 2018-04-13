@@ -14,7 +14,7 @@ gulp.task('clean', () => {
 });
 
 gulp.task('tslint', () => {
-  return gulp.src('src/**/*.ts')
+  return gulp.src(['src/**/*.ts', 'test/**/*.ts'])
     .pipe(tslint({ formatter: "verbose" }))
     .pipe(tslint.report());
 });

@@ -1,6 +1,8 @@
-import * as bodyParser from "body-parser";
-import * as express from "express";
-import * as path from "path";
+import * as bodyParser from 'body-parser';
+import * as express from 'express';
+import * as path from 'path';
+
+import * as router from './router';
 
 class App {
 
@@ -19,14 +21,8 @@ class App {
 
   private routes(): void {
 
-    const router = express.Router();
-
-    router.get("/", (req, res, next) => {
-      res.json({
-        message: "Hello World!",
-      });
-    });
-    this.express.use("/", router);
+    const appRouter = router.appRouter;
+    this.express.use('/', appRouter);
   }
 
 }

@@ -1,42 +1,41 @@
 /* tslint:disable:no-console */
 
-import * as debug from "debug";
-import * as http from "http";
+import * as debug from 'debug';
+import * as http from 'http';
 
-import App from "./App";
+import App from './App';
 
-debug("Starting express server");
+debug('Starting express server');
 
 const port = normalizePort(process.env.PORT || 3000);
-App.set("port", port);
+App.set('port', port);
 
 const server = http.createServer(App);
 server.listen(port);
-server.on("error", onError);
-server.on("listening", onListening);
+server.on('error', onError);
+server.on('listening', onListening);
 
 function normalizePort(val: number|string): number|string|boolean {
-  const httpPort: number = (typeof val === "string") ? parseInt(val, 10) : val;
+  const httpPort: number = (typeof val === 'string') ? parseInt(val, 10) : val;
   if (isNaN(httpPort)) {
     return val;
-  } else if (httpPort >= 0) {
+  } if (httpPort >= 0) {
     return httpPort;
-  } else {
-    return false;
   }
+  return false;
 }
 
 function onError(error: NodeJS.ErrnoException): void {
-  if (error.syscall !== "listen") {
+  if (error.syscall !== 'listen') {
     throw error;
   }
-  const bind = (typeof port === "string") ? `Pipe ${port}` : `Port ${port}`;
+  const bind = (typeof port === 'string') ? `Pipe ${port}` : `Port ${port}`;
   switch (error.code) {
-    case "EACCES":
+    case 'EACCES':
       console.error(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
-    case "EADDRINUSE":
+    case 'EADDRINUSE':
       console.error(`${bind} is already in use`);
       process.exit(1);
       break;
@@ -47,6 +46,6 @@ function onError(error: NodeJS.ErrnoException): void {
 
 function onListening(): void {
   const addr = server.address();
-  const bind = (typeof addr === "string") ? `pipe ${addr}` : `port ${addr.port}`;
+  const bind = (typeof addr === 'string') ? `pipe ${addr}` : `port ${addr.port}`;
   console.log(`Listening on ${bind}`);
 }
