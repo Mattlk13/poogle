@@ -2,7 +2,12 @@
 .idea/
 .vscode/
 **/yarn-error.log
+.npm
 
 [API]
 **/node_modules
 build/
+
+
+# nyc test coverage
+.nyc_output/

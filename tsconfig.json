@@ -3,6 +3,7 @@
     "target": "es2017",
     "module": "commonjs",
     "outDir": "build",
+    "sourceMap": true,
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
