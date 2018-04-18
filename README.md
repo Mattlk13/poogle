@@ -1,5 +1,7 @@
 # Poogle
 
+[![codecov](https://codecov.io/gh/fabienleite/poogle/branch/master/graph/badge.svg)](https://codecov.io/gh/fabienleite/poogle)
+
 ![](poogle.png)
 
 Poogle is a meta search engine that gather searches from different porn sites and display them into one only convivial interface. It allows you to find the porn you're looking for faster and gives you the direct link to the original videos. It is for now intended to work with a limited number of non-free big porn websites.
