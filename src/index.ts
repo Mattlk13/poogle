@@ -19,7 +19,8 @@ function normalizePort(val: number|string): number|string|boolean {
   const httpPort: number = (typeof val === 'string') ? parseInt(val, 10) : val;
   if (isNaN(httpPort)) {
     return val;
-  } if (httpPort >= 0) {
+  }
+  if (httpPort >= 0) {
     return httpPort;
   }
   return false;

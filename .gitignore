@@ -11,3 +11,4 @@ build/
 
 # nyc test coverage
 .nyc_output/
+coverage/
