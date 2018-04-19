@@ -4,7 +4,7 @@
   "description": "Porn search utility",
   "scripts": {
     "test": "nyc mocha",
-    "posttest": "nyc report --reporter=json && mv coverage/coverage-final.json coverage/coverage.json && codecov",
+    "codecov": "nyc report --reporter=json && mv coverage/coverage-final.json coverage/coverage.json && codecov",
     "build": "gulp build",
     "lint": "gulp tslint",
     "dev": "node build/index.js",

@@ -1,10 +1,23 @@
 language: node_js
+
+dist: trusty
 sudo: false
+
+addons:
+  sonarcloud:
+    organisation: fabienleite-github
+    token:
+      secure: SONAR_TOKEN
+
 node_js:
   - 'node'
   - 7
   - 6
+
 install:
   - npm install --dev
+
 script:
   - npm test
+  - npm codecov
+  - sonar-scanner

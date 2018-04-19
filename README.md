@@ -1,6 +1,7 @@
 # Poogle
 
 [![codecov](https://codecov.io/gh/fabienleite/poogle/branch/master/graph/badge.svg)](https://codecov.io/gh/fabienleite/poogle)
+[![dependencies Status](https://david-dm.org/fabienleite/poogle/status.svg)](https://david-dm.org/fabienleite/poogle)
 
 ![](poogle.png)
 
@@ -12,7 +13,7 @@ Poogle provides an API. It is not hosted yet (just like the software) but you ca
 
 ## Licence
 
-This software is under [CeCILL 2.1](http://www.cecill.info/licences.en.html) licence. It is a french licence, fully compatible with GNU-GPLv2 but more adapted to french law. 
+This software is under [CeCILL 2.1](http://www.cecill.info/licences.en.html) licence. It is a french licence, fully compatible with GNU-GPLv2 but more adapted to french law.
 
 ## Contributing
 
