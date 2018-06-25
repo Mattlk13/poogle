@@ -1,7 +1,7 @@
 # Poogle
 
 [![codecov](https://codecov.io/gh/fabienleite/poogle/branch/master/graph/badge.svg)](https://codecov.io/gh/fabienleite/poogle)
-[![dependencies Status](https://david-dm.org/fabienleite/poogle/status.svg)](https://david-dm.org/fabienleite/poogle)
+[![dependencies Status](https://david-dm.org/fabienleite/poogle/status.svg)](https://david-dm.org/fabienleite/poogle) [![Greenkeeper badge](https://badges.greenkeeper.io/fabienleite/poogle.svg)](https://greenkeeper.io/)
 
 ![](poogle.png)
 
