@@ -1,5 +1,0 @@
-{
-  "errorCode": "emailTaken",
-  "errorMessage": "Your request was understood by server but was not correct.",
-  "details": "Email is already in use."
-}

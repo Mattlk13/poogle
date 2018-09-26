@@ -1,5 +1,0 @@
-{
-  "errorCode": "badParameter",
-  "errorMessage": "Your request was understood by server but was not correct.",
-  "details": "Incorrect or unexpected arguments provided."
-}

@@ -11,8 +11,7 @@ addons:
 
 node_js:
   - 'node'
-  - 7
-  - 6
+  - 10
 
 install:
   - npm install --dev
