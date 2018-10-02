@@ -1,5 +1,7 @@
 import * as express from 'express';
-import * as search from './search/Search';
+
+import Search from './search/Search';
+import SearchOnJulesJordan from './search/SearchOnJulesJordan';
 
 const appRouter = express.Router();
 
@@ -10,7 +12,7 @@ appRouter.get('/', (req, res) => {
 });
 
 appRouter.get('/search', (req, res) => {
-  res.json(search.find(req));
+  res.json(Promise.resolve(SearchOnJulesJordan.prototype.find(req.query)));
 });
 
 export { appRouter };

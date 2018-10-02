@@ -25,12 +25,14 @@
   },
   "homepage": "https://github.com/fabienleite/poogle#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "cheerio": "^1.0.0-rc.2",
     "debug": "^4.0.0",
     "express": "^4.16.3"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/body-parser": "^1.16.8",
     "@types/chai": "^4.1.2",
     "@types/chai-http": "^3.0.4",
