@@ -29,9 +29,8 @@ abstract class Search{
    * @param searchUrl the url we want the html of
    */
   protected async getHtml(searchUrl: URL) : Promise<string> {
-    // TODO: Do the shit.
-    throw new Error('Method not implemented YET');
-    return null;
+    const result = await axios.default.get(searchUrl.hash);
+    return result.data;
   }
 
   /**
