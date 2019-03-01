@@ -43,7 +43,6 @@ abstract class Search{
    */
   public abstract async parse(textContent: string): Promise<(Video)[]>;
 
-
   /* Used functions */
 
   /**
