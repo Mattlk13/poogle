@@ -16,10 +16,12 @@ abstract class Search{
 
   /**
    * Performs a search from a search to String to get a matching list of Videos.
-   *  @param searchText the string the user wants to find
+   * @param searchText the string the user wants to find
+   * @param baseUrl the base URL of the website
+   * @param searchPath the search url of the website
    */
-  public async find(searchText: string): Promise<(Video)[]> {
-    const searchUrl = this.translateToURL(searchText);
+  public async find(searchText: string, baseUrl: string, searchPath: string): Promise<(Video)[]> {
+    const searchUrl = this.translateToURL(searchText, baseUrl, searchPath);
     const htmlRes = await this.getHtml(searchUrl);
     return this.parse(htmlRes);
   }
@@ -28,8 +30,8 @@ abstract class Search{
    * Gets the raw html result of a search from its URL.
    * @param searchUrl the url we want the html of
    */
-  protected async getHtml(searchUrl: URL) : Promise<string> {
-    const result = await axios.default.get(searchUrl.hash);
+  public async getHtml(searchUrl: URL) : Promise<string> {
+    const result = await axios.default.get(searchUrl.href);
     return result.data;
   }
 
@@ -39,7 +41,7 @@ abstract class Search{
    * You HAVE to redfine this one on your extending class
    * @param textContent the textual content of the (html) web page
    */
-  protected abstract async parse(textContent: string): Promise<(Video)[]>;
+  public abstract async parse(textContent: string): Promise<(Video)[]>;
 
 
   /* Used functions */
@@ -48,11 +50,13 @@ abstract class Search{
    * Transforms an user search text into an url
    * @param searchText the string the user wants to find
    * @throws TypeError if search cannot be casted to a correct URL
+   * @param baseUrl the base URL of the website
+   * @param searchPath the search url of the website
    */
-  protected translateToURL(searchText: string): URL {
+  public translateToURL(searchText: string, baseUrl: string, searchPath: string): URL {
     const reqOptionsUrlized = searchText.replace(' ', '+');
     return new URL(
-      `${this.baseUrl}${this.searchPath}?x=0&y=0&query=${reqOptionsUrlized}`,
+      `${baseUrl}${searchPath}?x=0&y=0&query=${reqOptionsUrlized}`,
     );
   }
 

@@ -1,18 +1,39 @@
 import * as express from 'express';
 
-import Search from './search/Search';
+import Video from './classes/Video';
 import SearchOnJulesJordan from './search/SearchOnJulesJordan';
 
 const appRouter = express.Router();
 
 appRouter.get('/', (req, res) => {
   res.json({
-    message: 'Hello World!',
+    message: `
+      Hello, this is the Poogle API and you can find documentation here :
+      https://fabienleite.github.io/poogle-doc/
+    `,
   });
 });
 
-appRouter.get('/search', (req, res) => {
-  res.json(Promise.resolve(SearchOnJulesJordan.prototype.find(req.query)));
+appRouter.get('/search', async (req, res) => {
+  const baseUrl: string = SearchOnJulesJordan.baseUrl;
+  const searchPath: string = SearchOnJulesJordan.searchPath;
+  try {
+    const searchRes: (Video)[] = await SearchOnJulesJordan.prototype.find(
+      req.query.q, baseUrl, searchPath,
+    );
+    res.json(searchRes);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Server error on getting results from Jules Jordan' });
+  }
+});
+
+// default 404
+appRouter.get('*', async (req, res) => {
+  res.status(404).json({
+    error: 'Whoops ! This is a 404, are you sure this is the URL you\'re looking for ?',
+    documentation: 'https://fabienleite.github.io/poogle-doc/',
+  });
 });
 
 export { appRouter };
