@@ -3,6 +3,7 @@
 .vscode/
 **/yarn-error.log
 .npm
+*.iml
 
 [API]
 **/node_modules
