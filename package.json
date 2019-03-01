@@ -33,7 +33,6 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "@types/axios": "^0.14.0",
     "@types/body-parser": "^1.17.0",
     "@types/chai": "^4.1.7",
     "@types/chai-http": "^3.0.5",
