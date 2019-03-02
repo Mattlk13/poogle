@@ -9,7 +9,7 @@ const JSON_FILES = ['src/*.json', 'src/**/*.json'];
 const tsProject = ts.createProject('tsconfig.json');
 
 gulp.task('clean', () => {
-  return gulp.src('build/*.js', {read: false})
+  return gulp.src('build/**.js', {read: false})
     .pipe(clean());
 });
 
@@ -24,7 +24,7 @@ gulp.task('assets', () => {
   .pipe(gulp.dest('build'));
 });
 
-gulp.task('build', ['clean', 'tslint', 'assets'], () => {
+gulp.task('build', gulp.series('clean', 'tslint', 'assets', () => {
   const tsResult = tsProject.src().pipe(tsProject());
   return tsResult.js.pipe(gulp.dest('build'));
-});
+}));

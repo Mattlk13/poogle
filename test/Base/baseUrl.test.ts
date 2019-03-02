@@ -28,7 +28,6 @@ describe('baseUrl', () => {
 
 });
 
-
 describe('not existing ressource', () => {
   it('should get a 404', () => {
     return chai.request(App).get('/riley-reid-is-bae')
