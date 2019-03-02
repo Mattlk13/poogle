@@ -23,15 +23,21 @@ class SearchOnJulesJordan extends Search {
       const nbrThmb = Number(
         videoElements.children().eq(i).children().eq(0).children().eq(0).attr('cnt'),
       );
-      for (let i = 0; i < nbrThmb ; i += 1) {
-        const currentThmb = videoElements.children().eq(i).children().eq(0).children().eq(0).attr(
-          `src${i}_1x`,
-        );
 
-        if (typeof currentThmb !== 'undefined') {
-          const currentThmbAsUrl = new URL(currentThmb);
-          currentVideo.thumbnailUrl.push(currentThmbAsUrl);
+      if (nbrThmb > 1) {
+        for (let j = 0; j < nbrThmb ; j += 1) {
+          const currentThmb = videoElements.children().eq(i).children().eq(0).children().eq(0).attr(
+            (j === 1 ? 'src' : `src${j}_1x`),
+          );
+          if (typeof currentThmb !== 'undefined') {
+            const currentThmbAsUrl = new URL(currentThmb);
+            currentVideo.thumbnailUrl.push(currentThmbAsUrl);
+          }
         }
+      } else {
+        currentVideo.thumbnailUrl.push(
+          new URL(videoElements.children().eq(i).children().eq(0).children().eq(0).attr('src')),
+        );
       }
 
       // performers
