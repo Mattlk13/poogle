@@ -47,6 +47,32 @@ class SearchOnJulesJordan extends Search {
         currentVideo.performers.push($(this).text());
       });
 
+      // description
+      currentVideo.description = videoElements.children().eq(i).children().eq(2).attr('title');
+
+      // date
+      currentVideo.date = new Date(
+        videoElements.children().eq(i).children().eq(6).children().eq(0).children().eq(0).text()
+          .trim(),
+      );
+
+      // length
+      let videoLength: number;
+      const videoLengthAndOtherInfos: string = (
+        videoElements.children().eq(i).children().eq(5).text()
+      );
+      const commaPosition: number = videoLengthAndOtherInfos.indexOf(',') + 1;
+      const minWordPosition: number = videoLengthAndOtherInfos.indexOf('min');
+      if (commaPosition && commaPosition > 0 && minWordPosition && minWordPosition > 0) {
+        videoLength = Number(videoLengthAndOtherInfos.substr(
+            commaPosition,
+            minWordPosition - commaPosition,
+          ),
+        ); // get video length in minutes
+        videoLength *= 60 ; // convert in seconds
+      }
+      currentVideo.length = videoLength;
+
       videos.push(currentVideo);
     }
     return videos;

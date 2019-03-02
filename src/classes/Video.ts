@@ -36,7 +36,7 @@ class Video {
   date: Date;
 
   /**
-   * The length of the video, in minutes. It's a float.
+   * The length of the video, in seconds. It's an int.
    */
   length: number;
 

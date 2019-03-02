@@ -4,10 +4,12 @@ import chaiHttp = require('chai-http');
 import App from '../../src/App';
 import Video from '../../src/classes/Video';
 import SearchOnJulesJordan from '../../src/search/SearchOnJulesJordan';
+import { PassThrough } from 'stream';
 
 chai.use(chaiHttp);
 const expect = chai.expect;
 const lenaPaulSearch = '/search?q=Lena+Paul';
+const nataliaStarrSearch = '/search?q=Natalia+Starr';
 
 describe('search', () => {
 
@@ -50,13 +52,40 @@ describe('search', () => {
     const thumbnailNumber = result.body[0].thumbnailUrl.length;
     expect(thumbnailNumber).to.be.greaterThan(0);
     expect(new URL(result.body[0].thumbnailUrl[thumbnailNumber - 1])).to.be.an.instanceOf(URL);
-    console.log(result.body[0].thumbnailUrl);
 
     // performers
     const performerNumber = result.body[0].performers.length;
     expect(performerNumber).to.be.greaterThan(0);
     expect(result.body[0].performers[performerNumber - 1]).to.be.a('string');
 
+    // description
+    expect(result.body[0].description).to.be.a('string');
+    expect(result.body[0].description).to.contain('Lena Paul');
+    expect(result.body[1].description).to.contain('Lena Paul');
+    expect(result.body[0].description.length).to.be.greaterThan(
+      result.body[0].title.length,
+    );
+
+    // date
+    const firstVideoDate = new Date(result.body[0].date);
+    const secondVideoDate = new Date(result.body[1].date);
+    expect(firstVideoDate).to.be.an.instanceOf(Date);
+    expect(secondVideoDate).to.be.an.instanceOf(Date);
+    expect(firstVideoDate).to.be.greaterThan(secondVideoDate);
+
+    // length
+    const firstVideoLength = result.body[0].length;
+    expect(firstVideoLength).to.be.a('number');
+    expect(firstVideoLength).to.be.greaterThan(60 * 5); // greater than 5 minutes
+
+  });
+
+  it('Should handle correctly multiple thumbnails', async () => {
+    const result = await chai.request(App).get(nataliaStarrSearch);
+
+    const thumbnailNumber = result.body[0].thumbnailUrl.length;
+    expect(thumbnailNumber).to.be.greaterThan(1);
+    expect(new URL(result.body[0].thumbnailUrl[thumbnailNumber - 1])).to.be.an.instanceOf(URL);
   });
 
   /** I REALLY don't see how to test it, I could use some help on that */
