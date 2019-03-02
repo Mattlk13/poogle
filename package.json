@@ -1,6 +1,6 @@
 {
   "name": "poogle-api",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Porn search utility",
   "scripts": {
     "test-no-cov": "mocha",
