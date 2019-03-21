@@ -1,5 +1,5 @@
 {
-  "name": "poogle-api",
+  "name": "emwas-api",
   "version": "1.0.1",
   "description": "Porn search utility",
   "scripts": {
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fabienleite/poogle.git"
+    "url": "git+https://github.com/fabienleite/emwas.git"
   },
   "keywords": [
     "porn",
@@ -22,9 +22,9 @@
   "author": "Fabien Leite",
   "license": "CECILL-2.0",
   "bugs": {
-    "url": "https://github.com/fabienleite/poogle/issues"
+    "url": "https://github.com/fabienleite/emwas/issues"
   },
-  "homepage": "https://github.com/fabienleite/poogle#readme",
+  "homepage": "https://github.com/fabienleite/emwas#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.0",

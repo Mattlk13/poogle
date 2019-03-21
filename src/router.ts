@@ -8,8 +8,8 @@ const appRouter = express.Router();
 appRouter.get('/', (req, res) => {
   res.json({
     message: `
-      Hello, this is the Poogle API and you can find documentation here :
-      https://fabienleite.github.io/poogle-doc/
+      Hello, this is the emwas API and you can find documentation here :
+      https://fabienleite.github.io/emwas-doc/
     `,
   });
 });
@@ -32,7 +32,7 @@ appRouter.get('/search', async (req, res) => {
 appRouter.get('*', async (req, res) => {
   res.status(404).json({
     error: 'Whoops ! This is a 404, are you sure this is the URL you\'re looking for ?',
-    documentation: 'https://fabienleite.github.io/poogle-doc/',
+    documentation: 'https://fabienleite.github.io/emwas-doc/',
   });
 });
 
