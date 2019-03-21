@@ -9,7 +9,7 @@
     "build": "gulp build",
     "lint": "gulp tslint",
     "dev": "gulp build && node build/index.js",
-    "prod": "gulp build && node build/index.js"
+    "start": "export PORT=8081 && npm install && npx gulp build && node build/index.js"
   },
   "repository": {
     "type": "git",

@@ -13,3 +13,7 @@ build/
 # nyc test coverage
 .nyc_output/
 coverage/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
