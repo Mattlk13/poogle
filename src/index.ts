@@ -1,11 +1,8 @@
 /* tslint:disable:no-console */
 
-import * as debug from 'debug';
 import * as http from 'http';
 
 import App from './App';
-
-debug('Starting express server');
 
 const port = normalizePort(process.env.PORT || 3000);
 App.set('port', port);
