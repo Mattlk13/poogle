@@ -1,24 +1,37 @@
-# emwas
+# Efficient Masturbation With Aggregated Search
 
 [![Build Status](https://travis-ci.org/fabienleite/emwas.svg?branch=master)](https://travis-ci.org/fabienleite/emwas)
 [![codecov](https://codecov.io/gh/fabienleite/emwas/branch/master/graph/badge.svg)](https://codecov.io/gh/fabienleite/emwas)
 [![Dependencies Status](https://david-dm.org/fabienleite/emwas/status.svg)](https://david-dm.org/fabienleite/emwas) [![Greenkeeper badge](https://badges.greenkeeper.io/fabienleite/emwas.svg)](https://greenkeeper.io/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/27054be9170d4989bced/maintainability)](https://codeclimate.com/github/fabienleite/emwas/maintainability)
 
-emwas is a meta search engine that gather searches from different porn sites and display them into one only convivial interface. It allows you to find the porn you're looking for faster and gives you the direct link to the original videos. It is for now intended to work with a limited number of non-free big porn websites.
+emwas is a tool that gather searches from different porn sites and display them into one only convivial interface. It allows you to find the porn you're looking for faster and gives you the direct link to the original videos. It is for now intended to work with a limited number of non-free big porn websites.
 
-## Documentation
+This repo concerns the API part of the tool.
 
-emwas provides an API. It is not hosted yet (just like the software) but you can find the documentation both in RAML and HTML format. If you make modification, you can build it from api/doc folder.
+emwas API is now hosted at [api.emwas.co](https://api.emwas.co). If you want you can also use our emoji shortcut : [api.🍆🔍.ws](http://api.🍆🔍.ws).
 
-You can find and modify it [here](https://github.com/fabienleite/emwas-doc).
+## Other repositories
 
-Doc is [hosted](https://fabienleite.github.io/emwas-doc/) but not really up to date yet.$
+### Client
 
-## Licence
+The VueJS client code is available [here](https://github.com/fabienleite/emwas-client).
 
-This software is under [CeCILL 2.1](http://www.cecill.info/licences.en.html) licence. It is a french licence, fully compatible with GNU-GPLv2 but more adapted to french law.
+### Documentation
+
+You can find and edit the API documentation [here](https://github.com/fabienleite/emwas-doc).
+
+Doc is [hosted](https://fabienleite.github.io/emwas-doc/).
+
+## Contact us
+
+If you want to contact the team, keep in touch or get the latest informations, you can join the [Slack](https://emwas.slack.com/) team.
+
 
 ## Contributing
 
-CeCILL licence is fully opensource, you can contribute to the code by opening an issue (please check it hasn't been reported yet) or submitting pull request.
+If you cant to contribute, please do. We use pretty much the usual classical way to handle contributions, please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
+
+## Licence
+
+This tool is licenced under a pretty uncomon licence which is [CeCILL 2.1](http://www.cecill.info/licences.en.html). It is a french licence, fully compatible with GNU-GPLv2 but more adapted to french law. You can just treat it the same way you usually do with GNU-GPLv2.
