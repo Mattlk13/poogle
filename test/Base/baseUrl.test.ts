@@ -22,7 +22,8 @@ describe('baseUrl', () => {
   it('should link to documentation', () => {
     return chai.request(App).get('/')
     .then((res) => {
-      expect(res.body.message).to.contain('https://fabienleite.github.io/emwas-doc/');
+      expect(res.body.message).to.contain('check documentation');
+      expect(res.body.documentation).to.contain('https://fabienleite.github.io/emwas-doc/');
     });
   });
 

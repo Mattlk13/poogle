@@ -7,10 +7,8 @@ const appRouter = express.Router();
 
 appRouter.get('/', (req, res) => {
   res.json({
-    message: `
-      Hello, this is the emwas API and you can find documentation here :
-      https://fabienleite.github.io/emwas-doc/
-    `,
+    message: 'Hello, this is the emwas API, please check documentation for more information',
+    documentation: 'https://fabienleite.github.io/emwas-doc/',
   });
 });
 
