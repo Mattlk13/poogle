@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "es2018",
     "module": "commonjs",
     "outDir": "build",
     "sourceMap": true,
@@ -8,6 +8,8 @@
     "strictNullChecks": true,
     "removeComments": true,
     "preserveConstEnums": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": [
     "src/**/*.ts"

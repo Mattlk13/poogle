@@ -12,16 +12,19 @@ class SearchOnJulesJordan extends Search {
     const videos: Video[] = [];
     const videoElements = $('.category_listing_wrapper_updates');
     for (let i = 0 ; i < videoElements.length ; i += 1) {
-      const currentVideo: Video = new Video();
       const currentVideoElement = videoElements.children().eq(i).children();
 
-      currentVideo.title = this.findVideoTitle(currentVideoElement);
-      currentVideo.url = this.findVideoURL(currentVideoElement);
-      currentVideo.thumbnailUrl = this.findVideoThumbnailsURL(currentVideoElement);
-      currentVideo.performers = this.findVideoPerformers(currentVideoElement);
-      currentVideo.description = this.findVideoDescription(currentVideoElement);
-      currentVideo.date = this.findVideoDate(currentVideoElement);
-      currentVideo.length = this.findVideoLength(currentVideoElement);
+      const currentVideo: Video = new Video(
+        1,
+        this.findVideoTitle(currentVideoElement),
+        this.findVideoURL(currentVideoElement),
+        this.findVideoPerformers(currentVideoElement),
+        this.findVideoThumbnailsURL(currentVideoElement),
+        this.findVideoDescription(currentVideoElement),
+        this.findVideoDate(currentVideoElement),
+        this.findVideoLength(currentVideoElement),
+        null,
+      );
 
       videos.push(currentVideo);
     }

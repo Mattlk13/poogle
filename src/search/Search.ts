@@ -9,8 +9,8 @@ import Video from '../classes/Video';
  */
 abstract class Search{
 
-  public baseUrl: string;
-  public searchPath: string;
+  public static baseUrl: string;
+  public static searchPath: string;
 
   /* Essential high level functions */
 

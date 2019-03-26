@@ -1,5 +1,27 @@
 class Video {
 
+  constructor (
+    service: number,
+    title: string,
+    url: URL,
+    performers: (string)[],
+    thumbnailUrl: (URL)[],
+    description: string,
+    date: Date,
+    length: number,
+    tags: (string)[] | null,
+  ) {
+    this.service = service;
+    this.title = title;
+    this.url = url;
+    this.performers = performers;
+    this.thumbnailUrl = thumbnailUrl;
+    this.description = description;
+    this.date = date;
+    this.length = length;
+    tags ? this.tags = tags : this.tags = [];
+  }
+
   /**
    * The id of the service (website) the video has been found on.
    */
