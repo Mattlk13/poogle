@@ -5,6 +5,7 @@
     "outDir": "build",
     "sourceMap": true,
     "noImplicitAny": true,
+    "strictNullChecks": true,
     "removeComments": true,
     "preserveConstEnums": true,
   },

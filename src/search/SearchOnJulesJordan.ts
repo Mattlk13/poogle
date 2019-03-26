@@ -77,7 +77,7 @@ class SearchOnJulesJordan extends Search {
   }
 
   public findVideoLength(videoElement: Cheerio): number {
-    let videoLength: number;
+    let videoLength: number = 0;
     const videoLengthAndOtherInfos: string = videoElement.eq(5).text();
     const commaPosition: number = videoLengthAndOtherInfos.indexOf(',') + 1;
     const minWordPosition: number = videoLengthAndOtherInfos.indexOf('min');
