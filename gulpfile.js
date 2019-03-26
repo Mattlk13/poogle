@@ -24,7 +24,9 @@ gulp.task('assets', () => {
   .pipe(gulp.dest('build'));
 });
 
-gulp.task('build', gulp.series('clean', 'tslint', 'assets', () => {
+gulp.task('compile', () => {
   const tsResult = tsProject.src().pipe(tsProject());
   return tsResult.js.pipe(gulp.dest('build'));
-}));
+});
+
+gulp.task('build', gulp.series('clean', 'tslint', 'assets', 'compile'));
