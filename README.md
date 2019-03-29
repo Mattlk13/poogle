@@ -34,4 +34,4 @@ If you cant to contribute, please do. We use pretty much the usual classical way
 
 ## Licence
 
-This tool is licenced under a pretty uncomon licence which is [CeCILL 2.1](http://www.cecill.info/licences.en.html). It is a french licence, fully compatible with GNU-GPLv2 but more adapted to french law. You can just treat it the same way you usually do with GNU-GPLv2.
+This tool is licenced under a pretty uncomon licence which is [CeCILL 2.1](http://www.cecill.info/licences.en.html). It is a french licence, fully compatible with GNU-GPLv3 but more adapted to french law. You can just treat it the same way you usually do with GNU-GPLv3.
