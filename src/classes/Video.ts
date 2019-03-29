@@ -9,7 +9,7 @@ class Video {
     description: string,
     date: Date,
     length: number,
-    tags: (string)[] | null,
+    tags: (string)[] | null = null,
   ) {
     this.service = service;
     this.title = title;

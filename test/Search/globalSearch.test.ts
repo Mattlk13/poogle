@@ -1,10 +1,11 @@
 import * as chai from 'chai';
+import * as sinon from 'sinon';
 import chaiHttp = require('chai-http');
 
 import App from '../../src/App';
 import Video from '../../src/classes/Video';
+import Search from '../../src/search/Search';
 import SearchOnJulesJordan from '../../src/search/SearchOnJulesJordan';
-import { PassThrough } from 'stream';
 
 chai.use(chaiHttp);
 const expect = chai.expect;
@@ -17,6 +18,17 @@ describe('search', () => {
     const res = await chai.request(App).get(lenaPaulSearch);
     expect(res).to.be.json;
     expect(res).to.be.an('object');
+  });
+
+  it('should return HTTP 500 if a Promise fails', async () => {
+    sinon.replace(Search.prototype, 'getHtml', () => {
+      return Promise.reject();
+    });
+    const res = await chai.request(App).get(lenaPaulSearch);
+    expect(res).to.be.json;
+    expect(res.status).to.equal(500);
+    expect(res.body.error.toUpperCase()).to.contain('SERVER ERROR');
+    sinon.restore();
   });
 
   const baseUrl = SearchOnJulesJordan.baseUrl;
@@ -87,9 +99,5 @@ describe('search', () => {
     expect(thumbnailNumber).to.be.greaterThan(1);
     expect(new URL(result.body[0].thumbnailUrl[thumbnailNumber - 1])).to.be.an.instanceOf(URL);
   });
-
-  /** I REALLY don't see how to test it, I could use some help on that */
-  // it('shouldreturn HTTP 500 if Promise fails', async () => {
-  // });
 
 });

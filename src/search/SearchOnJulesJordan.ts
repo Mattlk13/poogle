@@ -23,7 +23,6 @@ class SearchOnJulesJordan extends Search {
         this.findVideoDescription(currentVideoElement),
         this.findVideoDate(currentVideoElement),
         this.findVideoLength(currentVideoElement),
-        null,
       );
 
       videos.push(currentVideo);
