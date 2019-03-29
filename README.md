@@ -30,7 +30,7 @@ If you want to contact the team, keep in touch or get the latest informations, y
 
 ## Contributing
 
-If you cant to contribute, please do. We use pretty much the usual classical way to handle contributions, please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
+If you want to contribute, please do. We use pretty much the usual classical way to handle contributions, please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
 
 ## Licence
 
