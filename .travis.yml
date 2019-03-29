@@ -8,9 +8,9 @@ node_js:
   - 10
 
 install:
-  - npm install --dev
+  - yarn
 
 script:
-  - npm test
-  - npm run codecov
+  - yarn run test
+  - yarn run codecov
   - npx gulp build
