@@ -45,7 +45,7 @@ function onError(error: NodeJS.ErrnoException): void {
 function onListening(): void {
   const addr = server.address();
   let bind = '(not able to detect port)';
-  if (addr != null && addr !== undefined) {
+  if (addr != null) {
     bind = (typeof addr === 'string') ? `pipe ${addr}` : `port ${addr.port}`;
   }
   console.log(`Listening on ${bind}`);

@@ -4,6 +4,7 @@
 [![codecov](https://codecov.io/gh/fabienleite/emwas/branch/master/graph/badge.svg)](https://codecov.io/gh/fabienleite/emwas)
 [![Dependencies Status](https://david-dm.org/fabienleite/emwas/status.svg)](https://david-dm.org/fabienleite/emwas) [![Greenkeeper badge](https://badges.greenkeeper.io/fabienleite/emwas.svg)](https://greenkeeper.io/)
 [![Maintainability](https://api.codeclimate.com/v1/badges/27054be9170d4989bced/maintainability)](https://codeclimate.com/github/fabienleite/emwas/maintainability)
+[![DeepScan grade](https://deepscan.io/api/teams/3235/projects/4761/branches/38029/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=3235&pid=4761&bid=38029)
 
 emwas is a tool that gather searches from different porn sites and display them into one only convivial interface. It allows you to find the porn you're looking for faster and gives you the direct link to the original videos. It is for now intended to work with a limited number of non-free big porn websites.
 
