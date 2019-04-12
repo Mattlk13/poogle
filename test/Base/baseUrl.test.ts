@@ -3,39 +3,29 @@ import App from '../../src/App';
 
 describe('baseUrl', () => {
 
-  it('should be valid json', () => {
-    return request(App).get('/')
-    .then((res) => {
-      expect(res.type).toEqual('application/json');
-    });
+  it('should be valid json', async () => {
+    const res = await request(App).get('/');
+    expect(res.type).toEqual('application/json');
   });
 
-  it('should link to documentation', () => {
-    return request(App).get('/')
-    .then((res) => {
-      expect(res.body.message).toEqual(expect.stringContaining('check documentation'));
-      expect(res.body.documentation).toEqual(
-        expect.stringContaining('https://fabienleite.github.io/emwas-doc/'),
-      );
-    });
+  it('should link to documentation', async () => {
+    const res = await request(App).get('/');
+    expect(res.body.message).toContain('check documentation');
+    expect(res.body.documentation).toContain('https://fabienleite.github.io/emwas-doc/');
   });
 
 });
 
 describe('not existing ressource', () => {
 
-  it('should get a 404', () => {
-    return request(App).get('/riley-reid-is-bae')
-    .then((res) => {
-      expect(res.status).toBe(404);
-    });
+  it('should get a 404', async () => {
+    const res = await request(App).get('/riley-reid-is-bae');
+    expect(res.status).toBe(404);
   });
 
-  it('should return an error message and redirect to doc', () => {
-    return request(App).get('/riley-reid-is-bae')
-    .then((res) => {
-      expect(res.body.error).toEqual(expect.stringContaining('Whoops'));
-      expect(res.body.documentation).toBeDefined();
-    });
+  it('should return an error message and redirect to doc', async () => {
+    const res = await request(App).get('/riley-reid-is-bae');
+    expect(res.body.error).toContain('Whoops');
+    expect(res.body.documentation).toBeDefined();
   });
 });
