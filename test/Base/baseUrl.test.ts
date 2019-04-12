@@ -1,45 +1,41 @@
-import * as chai from 'chai';
-import chaiHttp = require('chai-http');
-
+import * as request from 'supertest';
 import App from '../../src/App';
-
-chai.use(chaiHttp);
-const expect = chai.expect;
 
 describe('baseUrl', () => {
 
   it('should be valid json', () => {
-    return (
-      chai.request(App).get('/')
-      .then((res) => {
-        expect(res.type).to.eql('application/json');
-      })
-    );
+    return request(App).get('/')
+    .then((res) => {
+      expect(res.type).toEqual('application/json');
+    });
   });
 
   it('should link to documentation', () => {
-    return chai.request(App).get('/')
+    return request(App).get('/')
     .then((res) => {
-      expect(res.body.message).to.contain('check documentation');
-      expect(res.body.documentation).to.contain('https://fabienleite.github.io/emwas-doc/');
+      expect(res.body.message).toEqual(expect.stringContaining('check documentation'));
+      expect(res.body.documentation).toEqual(
+        expect.stringContaining('https://fabienleite.github.io/emwas-doc/'),
+      );
     });
   });
 
 });
 
 describe('not existing ressource', () => {
+
   it('should get a 404', () => {
-    return chai.request(App).get('/riley-reid-is-bae')
+    return request(App).get('/riley-reid-is-bae')
     .then((res) => {
-      expect(res).to.have.status(404);
+      expect(res.status).toBe(404);
     });
   });
 
   it('should return an error message and redirect to doc', () => {
-    return chai.request(App).get('/riley-reid-is-bae')
+    return request(App).get('/riley-reid-is-bae')
     .then((res) => {
-      expect(res.body.error).to.contain('Whoops');
-      expect(res.body.documentation).to.exist;
+      expect(res.body.error).toEqual(expect.stringContaining('Whoops'));
+      expect(res.body.documentation).toBeDefined();
     });
   });
 });
