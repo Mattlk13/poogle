@@ -11,6 +11,8 @@ install:
   - yarn
 
 script:
+  - yarn global add codecov
   - yarn run test
-  - yarn run codecov
+  - mv coverage/coverage-final.json coverage/coverage.json
+  - codecov
   - npx gulp build
