@@ -12,4 +12,5 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.{js,ts}', '!**/node_modules/**', '!src/index.ts'],
   coverageReporters: ['json', 'text'],
+  verbose: true,
 };

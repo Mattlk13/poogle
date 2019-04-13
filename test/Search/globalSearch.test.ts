@@ -2,22 +2,25 @@ import * as request from 'supertest';
 
 import App from '../../src/App';
 import Video from '../../src/classes/Video';
-import Search from '../../src/search/Search';
+import * as Search from '../../src/search/Search';
 import SearchOnJulesJordan from '../../src/search/SearchOnJulesJordan';
 
 const lenaPaulSearch = '/search?q=Lena+Paul';
 const nataliaStarrSearch = '/search?q=Natalia+Starr';
 
-describe('search', () => {
+describe('search HTTP status', () => {
+
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
 
   it('should return a JSON object in HTTP 200', async () => {
     const res = await request(App).get(lenaPaulSearch);
     expect(res.type).toEqual('application/json');
   });
-/*
+
   it('should return HTTP 500 if a Promise fails', async () => {
-    Search.prototype.getHtml = jest.fn();
-    Search.prototype.getHtml.mockImplementationOnce(() => {
+    jest.spyOn(Search.default.prototype, 'getHtml').mockImplementationOnce(() => {
       return Promise.reject();
     });
 
@@ -27,7 +30,10 @@ describe('search', () => {
     expect(res.body.error.toUpperCase()).toContain('SERVER ERROR');
 
   });
-*/
+});
+
+describe('search functionnalities', () => {
+
   const baseUrl = SearchOnJulesJordan.baseUrl;
   const searchPath = SearchOnJulesJordan.searchPath;
   const newSearch = new SearchOnJulesJordan();
