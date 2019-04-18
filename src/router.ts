@@ -2,6 +2,7 @@ import * as express from 'express';
 
 import Video from './classes/Video';
 import SearchOnJulesJordan from './search/SearchOnJulesJordan';
+import services from './services';
 
 const appRouter = express.Router();
 
@@ -10,6 +11,10 @@ appRouter.get('/', (req, res) => {
     message: 'Hello, this is the emwas API, please check documentation for more information',
     documentation: 'https://fabienleite.github.io/emwas-doc/',
   });
+});
+
+appRouter.get('/services', (req, res) => {
+  res.json(services);
 });
 
 appRouter.get('/search', async (req, res) => {

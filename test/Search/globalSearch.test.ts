@@ -10,10 +10,6 @@ const nataliaStarrSearch = '/search?q=Natalia+Starr';
 
 describe('search HTTP status', () => {
 
-  afterEach(() => {
-    jest.restoreAllMocks();
-  });
-
   it('should return a JSON object in HTTP 200', async () => {
     const res = await request(App).get(lenaPaulSearch);
     expect(res.type).toEqual('application/json');
@@ -29,6 +25,7 @@ describe('search HTTP status', () => {
     expect(res.status).toBe(500);
     expect(res.body.error.toUpperCase()).toContain('SERVER ERROR');
 
+    jest.restoreAllMocks();
   });
 });
 

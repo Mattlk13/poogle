@@ -2,10 +2,16 @@ import * as cheerio from 'cheerio';
 
 import Search from './Search';
 import Video from '../classes/Video';
+import services from '../services';
 
 class SearchOnJulesJordan extends Search {
-  public static baseUrl: string = 'https://www.julesjordan.com/';
-  public static searchPath: string = 'trial/search.php';
+  // go get interesting variables in the services file.
+  private static service = services.filter((service) => {
+    return service.name === 'Jules Jordan';
+  })[0];
+
+  public static baseUrl: string = SearchOnJulesJordan.service.baseUrl;
+  public static searchPath: string = SearchOnJulesJordan.service.searchPath;
 
   public async parse(textContent: string): Promise<(Video)[]> {
     const $ = cheerio.load(textContent);
@@ -15,7 +21,7 @@ class SearchOnJulesJordan extends Search {
       const currentVideoElement = videoElements.children().eq(i).children();
 
       const currentVideo: Video = new Video(
-        1,
+        SearchOnJulesJordan.service.id,
         this.findVideoTitle(currentVideoElement),
         this.findVideoURL(currentVideoElement),
         this.findVideoPerformers(currentVideoElement),
