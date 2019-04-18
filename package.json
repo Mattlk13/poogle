@@ -30,7 +30,6 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
-    "@types/axios": "^0.14.0",
     "@types/body-parser": "^1.17.0",
     "@types/cheerio": "^0.22.10",
     "@types/express": "^4.1.0",
