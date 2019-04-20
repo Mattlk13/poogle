@@ -17,3 +17,6 @@ coverage/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# We recommend Yarn instead.
+package-lock.json

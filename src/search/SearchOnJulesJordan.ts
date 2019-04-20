@@ -1,4 +1,5 @@
 import * as cheerio from 'cheerio';
+const { URL } = require('url');
 
 import Search from './Search';
 import Video from '../classes/Video';

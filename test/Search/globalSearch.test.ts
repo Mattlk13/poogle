@@ -4,6 +4,7 @@ import App from '../../src/App';
 import Video from '../../src/classes/Video';
 import * as Search from '../../src/search/Search';
 import SearchOnJulesJordan from '../../src/search/SearchOnJulesJordan';
+const { URL } = require('url');
 
 const lenaPaulSearch = '/search?q=Lena+Paul';
 const nataliaStarrSearch = '/search?q=Natalia+Starr';

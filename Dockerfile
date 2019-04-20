@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:8
 
 WORKDIR /app/
 
@@ -12,4 +12,4 @@ RUN npm run build
 
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+CMD ["yarn", "run", "dev"]
