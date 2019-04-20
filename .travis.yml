@@ -23,7 +23,10 @@ deploy:
   function-name: "emwas"
   region: "eu-west-3"
   role: "arn:aws:iam::226859925527:role/service-role/emwas-role-hejdd6z9"
-  handler_name: "lambda.handler"
+  module_name: "lambda"
+  handler_name: "handler"
+  runtine: "nodejs8.10"
+  skip_cleanup: true
   on:
     branch: master
     node: '8'
