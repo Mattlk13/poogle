@@ -1,4 +1,5 @@
 import * as axios from 'axios';
+const { URL } = require('url');
 
 import Video from '../classes/Video';
 

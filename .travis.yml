@@ -5,7 +5,8 @@ sudo: false
 
 node_js:
   - 'node'
-  - 10
+  - '10'
+  - '8'
 
 install:
   - yarn

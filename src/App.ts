@@ -19,8 +19,7 @@ class App {
   }
 
   private routes(): void {
-    const appRouter = router.appRouter;
-    this.express.use('/', appRouter);
+    this.express.use('/', router.appRouter);
   }
 
 }
