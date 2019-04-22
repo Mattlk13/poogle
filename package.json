@@ -5,12 +5,13 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
-    "build": "gulp build",
     "lint": "npx tslint 'src/**/*.ts' 'test/**/*.ts' --format stylish",
     "lint:fix": "npx tslint 'src/**/*.ts' 'test/**/*.ts' --fix -q",
     "lint:watch": "onchange 'src/**/*.ts' 'test/**/*.ts' -- npm run lint:fix",
-    "dev": "gulp build && node build/index.js",
-    "start": "export PORT=8081 && npm install && npx gulp build && node build/index.js"
+    "build": "npx rimraf build/* && npx tsc",
+    "build:watch": "tsc -w",
+    "dev": "npm run build && node build/index.js",
+    "start": "export PORT=8081 && npm install && npm run build && node build/index.js"
   },
   "repository": {
     "type": "git",
@@ -40,11 +41,9 @@
     "@types/jest": "^24.0.11",
     "@types/node": "^11.9.6",
     "@types/supertest": "^2.0.7",
-    "gulp": "^4.0.0",
-    "gulp-clean": "^0.4.0",
-    "gulp-typescript": "^5.0.0",
     "jest": "^24.7.1",
     "onchange": "^5.2.0",
+    "rimraf": "^2.6.3",
     "supertest": "^4.0.2",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.0.2",
