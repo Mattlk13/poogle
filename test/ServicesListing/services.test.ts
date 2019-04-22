@@ -4,7 +4,7 @@ import App from '../../src/App';
 
 describe('services are listed', () => {
   it('should list Jules Jordan Service', async () => {
-    const getServices = await request(App).get('/services');
+    const getServices = await request(App).get('/emwas/services');
     expect(getServices.body[0]).toEqual({
       id: 1,
       name: 'Jules Jordan',

@@ -6,8 +6,8 @@ import * as Search from '../../src/search/Search';
 import SearchOnJulesJordan from '../../src/search/SearchOnJulesJordan';
 const { URL } = require('url');
 
-const lenaPaulSearch = '/search?q=Lena+Paul';
-const nataliaStarrSearch = '/search?q=Natalia+Starr';
+const lenaPaulSearch = '/emwas/search?q=Lena+Paul';
+const nataliaStarrSearch = '/emwas/search?q=Natalia+Starr';
 
 describe('search HTTP status', () => {
 
