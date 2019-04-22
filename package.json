@@ -4,10 +4,11 @@
   "description": "Porn search utility",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch",
     "build": "gulp build",
     "lint": "npx tslint 'src/**/*.ts' 'test/**/*.ts' --format stylish",
-    "lint-fix": "npx tslint 'src/**/*.ts' 'test/**/*.ts' --fix -q",
-    "lint-watch": "onchange 'src/**/*.ts' 'test/**/*.ts' -- yarn run lint-fix",
+    "lint:fix": "npx tslint 'src/**/*.ts' 'test/**/*.ts' --fix -q",
+    "lint:watch": "onchange 'src/**/*.ts' 'test/**/*.ts' -- npm run lint:fix",
     "dev": "gulp build && node build/index.js",
     "start": "export PORT=8081 && npm install && npx gulp build && node build/index.js"
   },
