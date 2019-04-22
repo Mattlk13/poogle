@@ -10,13 +10,13 @@ node_js:
 
 install:
   - yarn
+  - yarn global add codecov
 
 script:
-  - yarn global add codecov
+  - yarn run lint
   - yarn run test
-  - mv coverage/coverage-final.json coverage/coverage.json
-  - codecov
-  - npx gulp build
+  - mv coverage/coverage-final.json coverage/coverage.json && codecov
+  - yarn run build
 
 deploy:
   provider: lambda

@@ -4,6 +4,8 @@
         "tslint-config-airbnb"
     ],
     "jsRules": {},
-    "rules": {},
+    "rules": {
+      "no-boolean-literal-compare": false
+    },
     "rulesDirectory": []
 }
