@@ -3,14 +3,15 @@
   "version": "1.0.1",
   "description": "Porn search utility",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "test:watch": "jest --watch",
-    "lint": "npx tslint 'src/**/*.ts' 'test/**/*.ts' --format stylish",
+    "lint": "npx tslint 'src/**/*.ts' 'test/**/*.ts' --format prose",
     "lint:fix": "npx tslint 'src/**/*.ts' 'test/**/*.ts' --fix -q",
     "lint:watch": "onchange 'src/**/*.ts' 'test/**/*.ts' -- npm run lint:fix",
     "build": "npx rimraf build/* && npx tsc",
     "build:watch": "tsc -w",
-    "dev": "npm run build && node build/index.js",
+    "node:watch": "nodemon ./build/index.js",
+    "dev": "concurrently -k -n \"node,tsc ,lint,test\" -c \"green.bold,blue.bold,yellow.bold,red.bold\" -s all \"npm run node:watch\" \"npm run build:watch\" \"npm run lint:watch\" \"npm run test:watch\"",
     "start": "export PORT=8081 && npm install && npm run build && node build/index.js"
   },
   "repository": {
@@ -41,12 +42,13 @@
     "@types/jest": "^24.0.11",
     "@types/node": "^11.9.6",
     "@types/supertest": "^2.0.7",
+    "concurrently": "^4.1.0",
     "jest": "^24.7.1",
+    "nodemon": "^1.18.11",
     "onchange": "^5.2.0",
     "rimraf": "^2.6.3",
     "supertest": "^4.0.2",
     "ts-jest": "^24.0.2",
-    "ts-node": "^8.0.2",
     "tslint": "^5.13.1",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.3.0"
