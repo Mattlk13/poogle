@@ -11,6 +11,7 @@ class App {
     this.express = express();
     this.middleware();
     this.routes();
+    this.express.disable('x-powered-by');
   }
 
   private middleware(): void {
