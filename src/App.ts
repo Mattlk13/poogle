@@ -20,7 +20,7 @@ class App {
   }
 
   private routes(): void {
-    this.express.use('/', router.appRouter);
+    this.express.use('/emwas/', router.appRouter);
   }
 
 }
