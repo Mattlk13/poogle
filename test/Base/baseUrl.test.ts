@@ -3,6 +3,11 @@ import App from '../../src/App';
 
 describe('baseUrl', () => {
 
+  it('should have a * CORS', async () => {
+    const res = await request(App).get('/api')
+    .expect('Access-Control-Allow-Origin', '*');
+  });
+
   it('should be valid json', async () => {
     const res = await request(App).get('/api/');
     expect(res.type).toEqual('application/json');
