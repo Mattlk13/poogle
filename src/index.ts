@@ -2,10 +2,10 @@
 
 import App from './App';
 
-const port = normalizePort(process.env.PORT || 3000);
+const port = normalizePort(process.env.PORT || 5000);
 App.set('port', port);
 
-App.listen(port, () => {
+App.listen(port as number, '0.0.0.0', () => {
   console.log(`Server started and ready - listening on port ${port}`);
 });
 

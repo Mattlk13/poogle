@@ -12,7 +12,7 @@
     "build:watch": "tsc -w",
     "node:watch": "nodemon ./build/index.js",
     "dev": "concurrently -k -n \"node,tsc ,lint,test\" -c \"green.bold,blue.bold,yellow.bold,red.bold\" -s all \"npm run node:watch\" \"npm run build:watch\" \"npm run lint:watch\" \"npm run test:watch\"",
-    "start": "export PORT=8081 && npm install && npm run build && node build/index.js"
+    "start": "npm run build && node build/index.js"
   },
   "repository": {
     "type": "git",
