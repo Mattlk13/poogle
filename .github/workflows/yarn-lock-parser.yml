@@ -1,0 +1,35 @@
+name: Yarn Classic lock parser
+on:
+  pull_request:
+    paths: ['yarn.lock', 'package.json', '.github/workflows/yarn-lock-parser.yml']
+  push:
+    branches: [master]
+    paths: ['yarn.lock', 'package.json', '.github/workflows/yarn-lock-parser.yml']
+permissions:
+  contents: read
+jobs:
+  parse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install the isolated Classic parser
+        run: npm install --prefix "$RUNNER_TEMP/lock-parser" --ignore-scripts --no-package-lock --no-audit --no-fund @yarnpkg/lockfile@1.1.0
+      - name: Parse the committed lock
+        env:
+          LOCK_PARSER_MODULE: ${{ runner.temp }}/lock-parser/node_modules/@yarnpkg/lockfile
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const assert = require('node:assert/strict');
+          const parser = require(process.env.LOCK_PARSER_MODULE);
+          const result = parser.parse(fs.readFileSync('yarn.lock', 'utf8'));
+          assert.equal(result.type, 'success');
+          assert.ok(Object.keys(result.object).length > 0);
+          console.log('Parsed ' + Object.keys(result.object).length + ' lock entries');
+          NODE
