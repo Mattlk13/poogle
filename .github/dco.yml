@@ -1,0 +1,4 @@
+# Preserve published history while requiring the original author certification.
+allowRemediationCommits:
+  individual: true
+  thirdParty: false
